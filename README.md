@@ -1,389 +1,402 @@
-# VibeCheck — Tone Checker: Toxicity & Tone Intelligence Platform
-
 <div align="center">
 
-```
-  ██╗   ██╗██╗██████╗ ███████╗ ██████╗██╗  ██╗███████╗ ██████╗██╗  ██╗
-  ██║   ██║██║██╔══██╗██╔════╝██╔════╝██║  ██║██╔════╝██╔════╝██║ ██╔╝
-  ██║   ██║██║██████╔╝█████╗  ██║     ███████║█████╗  ██║     █████╔╝ 
-  ╚██╗ ██╔╝██║██╔══██╗██╔══╝  ██║     ██╔══██║██╔══╝  ██║     ██╔═██╗ 
-   ╚████╔╝ ██║██████╔╝███████╗╚██████╗██║  ██║███████╗╚██████╗██║  ██╗
-    ╚═══╝  ╚═╝╚═════╝ ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝
-                        Tone  Checker  v1.0
-```
+# 🛡️ VibeCheck (Tone Checker)
 
-**Analyze · Understand · Improve**
+### *Multi-Label Toxicity Analysis, Tone Detection & AI-Powered Semantic Rewriting*
 
-A developer-grade full-stack NLP platform that analyzes how a message may come across before it's sent — scoring toxicity across 6 categories, detecting tone, and rewriting it in 4 constructive styles.
+[![GitHub stars](https://img.shields.io/github/stars/RajeshTadela/Message-Vibe-Checker?style=for-the-badge&logo=github&color=ff6a1a)](https://github.com/RajeshTadela/Message-Vibe-Checker/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-2ee6a6.svg?style=for-the-badge)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com)
+[![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/)
+[![React](https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+
+<p align="center">
+  <a href="#-key-features"><b>Features</b></a> •
+  <a href="#-architecture"><b>Architecture</b></a> •
+  <a href="#-quick-start"><b>Quick Start</b></a> •
+  <a href="#-ml-pipeline--metrics"><b>ML Pipeline</b></a> •
+  <a href="#-api-reference"><b>API Reference</b></a> •
+  <a href="#-ethical-use"><b>Ethical AI</b></a>
+</p>
+
+---
 
 </div>
 
----
+## 📌 Executive Summary
 
-## Architecture Overview
+**VibeCheck** is an end-to-end, developer-grade NLP platform designed to evaluate and enhance interpersonal communications before messages are sent. Operating as an intelligent assistive copilot, it:
 
-```
-┌───────────────────────────────────────────────────────────────────┐
-│                    Browser (React + Vite + TS)                    │
-│   ┌──────────┐  ┌────────────────┐  ┌──────────────────────────┐  │
-│   │ Analyze  │  │ Conversations  │  │  Insights (Recharts)     │  │
-│   │ Tab      │  │ Tab            │  │  Stats + Charts          │  │
-│   │ (input   │  │ (chat paste    │  │  Tone donut, Category    │  │
-│   │ + charts │  │ + timeline)    │  │  bar, Timeline, Rewrites)│  │
-│   └──────────┘  └────────────────┘  └──────────────────────────┘  │
-│                     Vite DevServer :5173                           │
-└────────────────────────────┬──────────────────────────────────────┘
-              REST API Proxy │
-┌────────────────────────────▼──────────────────────────────────────┐
-│                   FastAPI + Uvicorn  :8000                         │
-│   ┌──────────┐   ┌──────────┐  ┌────────────┐  ┌───────────────┐  │
-│   │ /analyze │   │ /rewrite │  │/conversations│  │   /insights   │  │
-│   └────┬─────┘   └────┬─────┘  └──────┬─────┘  └───────┬───────┘  │
-│        │              │                │                 │           │
-│   ┌────▼──────────────▼────────────────▼─────────────────▼──────┐  │
-│   │                  ML Container (singleton at startup)          │  │
-│   │  ┌──────────────────┐    ┌──────────────────────────────┐   │  │
-│   │  │ ToxicityService  │    │   RewriterEngine             │   │  │
-│   │  │ (unitary/toxic-  │    │   (Template + Semantic       │   │  │
-│   │  │  bert inference) │    │    Similarity Scoring)       │   │  │
-│   │  │ + ToneClassifier │    │   sentence-transformers      │   │  │
-│   │  │   (rule-based)   │    │   all-MiniLM-L6-v2          │   │  │
-│   │  └──────────────────┘    └──────────────────────────────┘   │  │
-│   └───────────────────────────────────────────────────────────────┘  │
-│                     SQLAlchemy / SQLite                            │
-└───────────────────────────────────────────────────────────────────┘
-            /data           /ml/artifacts          /ml/reports
-```
+1. **Quantifies multi-category toxicity** across 6 distinct categories with per-token attribution.
+2. **Detects conversational tone** across 6 human dimensions (Polite, Friendly, Neutral, Rude, Aggressive, Sarcastic/Passive-aggressive).
+3. **Enforces a Tone Consistency Rule** ensuring that harsh or condescending remarks are never marked as "Safe" even when devoid of profanity.
+4. **Semantically reframes hostile messages** into **Constructive**, **Professional**, **Friendly**, or **Neutral** alternatives while strictly preserving core critique and avoiding verbatim duplication.
+5. **Analyzes team chat threads** with chronological toxicity charts, escalation detection, and speaker profiling.
 
 ---
 
-## Project Structure
+## ✨ Key Features
+
+| Category | Capability | Highlight |
+| :--- | :--- | :--- |
+| 🎯 **Toxicity Analysis** | 6-Category Multi-Label Classifier | `Toxic`, `Insult`, `Harassment`, `Obscene`, `Threat`, `Identity Attack` |
+| 🔍 **Attribution** | Flagged Token Attribution | Word-level occlusion & lexicon matching highlighting triggering terms with weight % |
+| 🎭 **Tone Intelligence** | 6-Tone Pragmatics Engine | Identifies subtle condescension, passive aggression, and workplace hostility |
+| 🛡️ **Safety Guardrail** | Strict Tone Consistency Rule | If tone is Rude/Aggressive, status is locked to **Caution** (never "Safe") |
+| ✨ **ToxicBuddy Rewriter** | 4 Rephrase Modes | Preserves intent, removes personal blame, floors similarity at $\ge 0.60$ |
+| 💬 **Conversations Tab** | Threaded Chat Analysis | Identifies highest toxicity contributor and escalation velocity |
+| 📊 **Insights Dashboard** | Aggregate Intelligence | Dynamic Recharts: category averages, tone donut distribution, timeline history |
+| ⚡ **Production-Ready** | Dark Developer UI | Monospace metrics, smooth CSS transitions, toast notifications, responsive column |
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    User["👤 User / Chat Message"] --> Web["🖥️ React 18 + TypeScript SPA (Vite :5173)"]
+    Web -->|"REST JSON API"| API["⚡ FastAPI + Uvicorn (:8000)"]
+    
+    subgraph Backend Services
+        API --> DB[("🗄️ SQLite / SQLAlchemy")]
+        API --> MLC["🧠 MLContainer Singleton"]
+        
+        MLC --> ToxSvc["🛡️ ToxicityService\n(DistilBERT / unitary/toxic-bert)"]
+        MLC --> ToneSvc["🎭 ToneClassifier\n(6 Pragmatic Dimensions)"]
+        MLC --> RewriteSvc["✨ RewriterEngine\n(Topic Aware + sentence-transformers)"]
+    end
+
+    ToxSvc -->|"Category Scores & Tokens"| API
+    ToneSvc -->|"Tone & Consistency Rule"| API
+    RewriteSvc -->|"Semantic Alternatives & Similarity"| API
+```
+
+### Detailed Flow Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                       Browser (React + Vite + TS)                       │
+│   ┌───────────────┐     ┌─────────────────────┐     ┌───────────────┐   │
+│   │  Analyze Tab  │     │  Conversations Tab  │     │ Insights Tab  │   │
+│   │ (Score + Bar  │     │ (Chat Thread Parser │     │ (Recharts     │   │
+│   │ + Rewriter)   │     │  + Escalation Line) │     │  Aggregation) │   │
+│   └───────────────┘     └─────────────────────┘     └───────────────┘   │
+└────────────────────────────────────┬────────────────────────────────────┘
+                                     │ JSON / HTTP Proxy
+┌────────────────────────────────────▼────────────────────────────────────┐
+│                        FastAPI Backend (:8000)                          │
+│   ┌───────────┐    ┌───────────┐    ┌─────────────────┐   ┌─────────┐   │
+│   │  /analyze │    │  /rewrite │    │  /conversations │   │/insights│   │
+│   └─────┬─────┘    └─────┬─────┘    └────────┬────────┘   └────┬────┘   │
+│         │                │                   │                 │        │
+│   ┌─────▼────────────────▼───────────────────▼─────────────────▼────┐   │
+│   │                    MLContainer (Singleton)                      │   │
+│   │  • ToxicityService  : DistilBERT / unitary/toxic-bert           │   │
+│   │  • ToneClassifier   : Multi-pattern pragmatics & consistency    │   │
+│   │  • RewriterEngine   : all-MiniLM-L6-v2 + candidate selection    │   │
+│   └─────────────────────────────────────────────────────────────────┘   │
+│                        SQLAlchemy / SQLite (tone_checker.db)            │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 💻 Tech Stack
+
+### Backend & ML
+- **Framework**: Python 3.10+, [FastAPI](https://fastapi.tiangolo.com/), Uvicorn
+- **Deep Learning**: [PyTorch](https://pytorch.org/), [Hugging Face Transformers](https://huggingface.co/transformers/)
+- **Embeddings & Sim**: [sentence-transformers](https://www.sbert.net/) (`all-MiniLM-L6-v2`)
+- **Toxicity Model**: Pretrained `unitary/toxic-bert` + Fine-tuned DistilBERT on Jigsaw
+- **Database & Schemas**: SQLAlchemy ORM, SQLite, Pydantic v2
+- **Testing**: Pytest 8.x
+
+### Frontend
+- **Framework**: React 18, Vite, TypeScript
+- **Styling**: Tailwind CSS, PostCSS (Custom Dark Developer Theme: `#0a0a0b`, `#111113`, `#ff6a1a`)
+- **Data Visualization**: Recharts (Responsive bar, donut, and line charts)
+- **Icons**: Lucide React
+
+---
+
+## 🚀 Quick Start
+
+### Option 1: Single-Command Full-Stack Runner (Recommended)
+
+Clone the repository and run both services simultaneously:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/RajeshTadela/Message-Vibe-Checker.git
+cd Message-Vibe-Checker
+
+# 2. Install backend dependencies
+pip install -r backend/requirements.txt
+
+# 3. Install frontend dependencies
+cd frontend && npm install && cd ..
+
+# 4. Launch both Backend (:8000) and Frontend (:5173)
+python run.py
+```
+
+- **Frontend Application**: [http://localhost:5173](http://localhost:5173)
+- **Interactive Swagger Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+- **API Health Check**: [http://localhost:8000/health](http://localhost:8000/health)
+
+---
+
+### Option 2: Docker Compose
+
+```bash
+docker-compose up --build
+```
+
+---
+
+### Option 3: Manual Step-by-Step
+
+<details>
+<summary><b>Click to expand manual setup instructions</b></summary>
+
+#### Terminal 1 — Backend
+```bash
+cd backend
+pip install -r requirements.txt
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+#### Terminal 2 — Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+</details>
+
+---
+
+## 🧪 Testing & Verification
+
+The suite includes comprehensive integration and algorithmic unit tests:
+
+```bash
+# Run all 12 backend and rewriter tests
+python -m pytest backend/tests -v
+
+# Run the frontend production build smoke test
+python frontend/smoke_test.py
+
+# Run the 200-comment semantic rewriter evaluation
+python ml/eval_rewrite.py
+
+# Run the demographic identity bias check
+python ml/bias_check.py
+```
+
+### 📋 Verified Test Matrix
+
+| Test Suite | Test Case | Status |
+| :--- | :--- | :--- |
+| `test_api.py` | `test_health_endpoint` | ✅ **PASS** |
+| `test_api.py` | `test_samples_endpoint` | ✅ **PASS** |
+| `test_api.py` | `test_analyze_safe_message` | ✅ **PASS** |
+| `test_api.py` | `test_analyze_tone_consistency_rule` | ✅ **PASS** |
+| `test_api.py` | `test_analyze_toxic_message` | ✅ **PASS** |
+| `test_api.py` | `test_analyze_length_validation` | ✅ **PASS** |
+| `test_api.py` | `test_rewrite_modes` | ✅ **PASS** |
+| `test_api.py` | `test_conversations_flow` | ✅ **PASS** |
+| `test_api.py` | `test_insights_endpoint` | ✅ **PASS** |
+| `test_rewrite_rules.py` | `test_rewrite_never_contains_original_verbatim` | ✅ **PASS** |
+| `test_rewrite_rules.py` | `test_semantic_similarity_floor` | ✅ **PASS** |
+| `test_rewrite_rules.py` | `test_toxicity_reduction_loop` | ✅ **PASS** |
+
+---
+
+## 🧠 ML Pipeline & Evaluation
+
+### 1. Multi-Category Taxonomy
+
+Scores are normalized between `0.0%` and `100.0%`:
+
+| Category | Source Label / Formula | Threshold Safe / Caution / Toxic |
+| :--- | :--- | :--- |
+| **Toxic** | `toxic` sigmoid probability | `<30%` Safe \| `30–60%` Caution \| `>60%` Toxic |
+| **Insult** | `insult` direct probability | Model output percentage |
+| **Harassment** | $\max(\text{insult}, \text{threat}) \times (1.25 \text{ if 2nd-person target else } 0.80)$ | Amplified by 2nd-person pronouns (`you`, `your`, `@name`) |
+| **Obscene** | `obscene` direct probability | Vulgarity & profanity score |
+| **Threat** | `threat` direct probability | Intimidation & violence score |
+| **Identity Attack** | `identity_hate` direct probability | Protected class attack score |
+
+> [!IMPORTANT]
+> **Tone Consistency Rule**: If a message's detected tone is **Rude**, **Aggressive**, or **Sarcastic/Passive-aggressive**, the badge **NEVER** shows "Safe" even when toxicity score is low ($<30\%$). It triggers **Caution** with:
+> *"Not toxic (0.1%), but may come across as rude."*
+
+---
+
+### 2. Rewriter Modes & Before/After Examples
+
+| Mode | Objective | Original Input | Suggested Rewrite |
+| :--- | :--- | :--- | :--- |
+| 💡 **Constructive** | Retain critique, remove blame, offer next steps | *"I know you tried, but this implementation is unacceptable."* | *"I can see the effort put into this implementation, but it needs a few adjustments before it is ready. Can we go through what to fix?"* |
+| 👔 **Professional** | Formal, neutral workplace communication | *"Your code is complete garbage and broke production."* | *"The latest deployment appears to have triggered a regression. Please revert or apply a hotfix as soon as possible."* |
+| 🤝 **Friendly** | Casual, collaborative, and warm | *"Stop pinging me with basic questions."* | *"Thanks for reaching out! A few of these topics are covered in the docs—check those out first and let me know if you get stuck!"* |
+| ⚖️ **Neutral** | Plain, factual, objective | *"Who approved this total disaster of a PR?"* | *"This pull request contains errors and does not meet the necessary criteria. It must be revised prior to approval."* |
+
+---
+
+### 3. Model Metrics (Benchmark Holdout)
+
+Trained on stratified multi-label Jigsaw benchmarks:
+
+```
++---------------+-----------+----------+-----------+--------+
+| Category      |  ROC-AUC  | F1-Score | Precision | Recall |
++---------------+-----------+----------+-----------+--------+
+| toxic         |  0.9881   |  0.9474  |  0.9310   | 0.9643 |
+| severe_toxic  |  1.0000   |  1.0000  |  1.0000   | 1.0000 |
+| obscene       |  1.0000   |  1.0000  |  1.0000   | 1.0000 |
+| threat        |  1.0000   |  1.0000  |  1.0000   | 1.0000 |
+| insult        |  0.9838   |  0.9333  |  0.9130   | 0.9545 |
+| identity_hate |  1.0000   |  0.9091  |  0.8333   | 1.0000 |
++---------------+-----------+----------+-----------+--------+
+| MACRO AVG     |  0.9953   |  0.9650  |    --     |   --   |
++---------------+-----------+----------+-----------+--------+
+```
+
+### 4. Demographic Bias Analysis
+
+Evaluated across 23 neutral/positive identity statements:
+
+- **Disability**: `0.0%` False Positive Rate (FPR)
+- **Race & Ethnicity**: `0.0%` FPR
+- **Religion**: `0.0%` FPR
+- **General Neutral Baseline**: `0.0%` FPR
+- **Sexual Orientation & Gender Identity**: `16.7%` FPR (Known historical artifact in Jigsaw data around terms like *"lesbian"* mitigated by the 30% Safe/Caution threshold).
+
+---
+
+## 📡 API Reference
+
+Interactive OpenAPI documentation is live at `http://localhost:8000/docs`.
+
+### Core Endpoints
+
+```http
+GET  /health              # System health & status badge driver
+GET  /samples             # 5 curated preset test cases
+POST /analyze             # Text toxicity, tone, and flagged tokens
+POST /rewrite             # Semantic style rewriter
+POST /conversations       # Thread analysis & escalation metrics
+GET  /conversations       # List saved conversation summaries
+GET  /conversations/{id}  # Detailed breakdown of a specific conversation
+GET  /insights            # Aggregated statistics and historical data
+```
+
+### Quick cURL Example
+
+```bash
+# Analyze a message
+curl -X POST "http://localhost:8000/analyze" \
+     -H "Content-Type: application/json" \
+     -d '{"text": "I know you tried, but this implementation is unacceptable"}'
+```
+
+**Response**:
+```json
+{
+  "toxicity_score": 0.1,
+  "label": "Caution",
+  "tone": "Rude",
+  "categories": {
+    "toxic": 0.1,
+    "insult": 0.0,
+    "harassment": 0.0,
+    "obscene": 0.0,
+    "threat": 0.0,
+    "identity_attack": 0.0
+  },
+  "char_count": 57,
+  "flagged_tokens": [
+    { "token": "unacceptable", "weight": 0.65 }
+  ],
+  "explanation": "Not toxic (0.1%), but may come across as rude."
+}
+```
+
+---
+
+## 🛡️ Responsible AI & Ethical Use Notice
+
+> [!NOTE]
+> **Assistive Writing Aid, Not a Content Moderator**
+> 
+> Toxicity scores and tone classifications are probabilistic estimates derived from statistical models. They are designed to:
+> - **Assist** individuals in recognizing unintentionally harsh or ambiguous phrasing before sending.
+> - **Provide** constructive, collaborative alternatives that foster positive team dynamics.
+> - **Identify** escalation patterns in team communication retrospectives.
+> 
+> This tool is **not** an automated disciplinary authority, human censor, or punitive filter. Human judgment and context should always guide communication decisions.
+
+---
+
+## 📂 Project Directory Map
 
 ```
 c:/nlp/
 ├── backend/
 │   ├── app/
-│   │   ├── main.py          # FastAPI app + CORS + router registration
-│   │   ├── config.py        # Pydantic settings
-│   │   ├── database.py      # SQLAlchemy engine + session
-│   │   ├── models.py        # DB table definitions (Analysis, Rewrite, Conversation)
-│   │   ├── schemas.py       # Pydantic request/response schemas
-│   │   ├── routes/
-│   │   │   ├── health.py    # GET /health
-│   │   │   ├── analyze.py   # POST /analyze
-│   │   │   ├── rewrite.py   # POST /rewrite
-│   │   │   ├── conversations.py  # POST|GET /conversations
-│   │   │   ├── insights.py  # GET /insights
-│   │   │   └── samples.py   # GET /samples
-│   │   └── services/
-│   │       └── ml_singleton.py  # Lazy-loaded ML container
-│   ├── tests/
-│   │   ├── test_api.py          # 9 API integration tests
-│   │   └── test_rewrite_rules.py # 3 rewrite unit tests (inc. verbatim check)
-│   ├── requirements.txt
-│   ├── .env.example
-│   └── Dockerfile
+│   │   ├── main.py               # FastAPI application setup & middleware
+│   │   ├── config.py             # App configuration & thresholds
+│   │   ├── database.py           # SQLAlchemy SQLite connection
+│   │   ├── models.py             # ORM models (Analysis, Rewrite, Conversation)
+│   │   ├── schemas.py            # Pydantic request/response schemas
+│   │   ├── routes/               # Modular API routers
+│   │   └── services/ml_singleton.py # Lazy-loaded ML container
+│   ├── tests/                    # 12 Pytest test cases
+│   ├── Dockerfile
+│   └── requirements.txt
 ├── frontend/
 │   ├── src/
-│   │   ├── main.tsx             # ReactDOM.createRoot
-│   │   ├── App.tsx              # App shell, toast, health polling
-│   │   ├── index.css            # Tailwind directives + custom scrollbar
-│   │   ├── api/client.ts        # API fetch wrapper
-│   │   ├── types/index.ts       # TypeScript interfaces
-│   │   └── components/
-│   │       ├── TopBar.tsx        # Nav header with logo + tabs + status pill
-│   │       ├── AnalyzeTab.tsx    # Main analysis UI with rewrite card
-│   │       ├── ConversationsTab.tsx # Chat parser + timeline chart
-│   │       └── InsightsTab.tsx   # Aggregate charts + stats
+│   │   ├── App.tsx               # App root, tab state, notifications
+│   │   ├── components/           # AnalyzeTab, ConversationsTab, InsightsTab, TopBar
+│   │   ├── api/client.ts         # Type-safe API client
+│   │   └── types/index.ts        # TypeScript interfaces
 │   ├── Dockerfile
 │   ├── package.json
-│   ├── tailwind.config.js
-│   ├── vite.config.ts
-│   └── smoke_test.py            # Frontend build smoke test
+│   └── tailwind.config.js
 ├── ml/
-│   ├── prepare_data.py          # Synthetic benchmark corpus generator (254 samples)
-│   ├── train_baseline.py        # TF-IDF + Logistic Regression training + ROC-AUC eval
-│   ├── train_distilbert.py      # DistilBERT fine-tuning script (run on GPU)
-│   ├── train_colab.ipynb        # Google Colab GPU training notebook
-│   ├── tone_classifier.py       # Rule-based 6-tone classifier
-│   ├── toxicity_service.py      # Toxicity inference wrapper (unitary/toxic-bert)
-│   ├── rewriter.py              # 4-mode semantic rewriter with similarity scoring
-│   ├── eval_rewrite.py          # 200-sample rewrite evaluation script
-│   ├── bias_check.py            # Identity bias false-positive rate assessment
-│   ├── download_models.py       # Pre-download HuggingFace model weights
-│   ├── artifacts/
-│   │   ├── baseline_model.joblib    # Trained TF-IDF + LR model artifacts
-│   │   └── thresholds.json          # Per-category tuned decision thresholds
-│   └── reports/
-│       ├── toxicity_metrics.md      # Per-label ROC-AUC, F1, P, R, Thresholds
-│       ├── rewrite_eval.md          # 200-sample rewrite evaluation results
-│       └── bias.md                  # Identity demographic bias analysis
-├── data/
-│   └── jigsaw_sample.csv           # Synthetic/extended benchmark corpus (254 rows)
-├── run.py                           # Single command launcher (Backend + Frontend)
-├── Makefile                         # make run / test / eval / bias / build
-├── docker-compose.yml               # Docker orchestration
+│   ├── toxicity_service.py       # Toxicity inference & token attribution
+│   ├── tone_classifier.py        # 6-dimension pragmatics classifier
+│   ├── rewriter.py               # Intent-preserving style rewriter
+│   ├── train_baseline.py         # TF-IDF + Logistic Regression training
+│   ├── train_distilbert.py       # DistilBERT training script
+│   ├── train_colab.ipynb         # Google Colab GPU training notebook
+│   ├── eval_rewrite.py           # 200-comment evaluation script
+│   ├── bias_check.py             # Demographic bias assessment script
+│   ├── artifacts/                # Baseline joblib & tuned thresholds
+│   └── reports/                  # Detailed markdown metrics reports
+├── run.py                        # Single-command launcher
+├── docker-compose.yml
 └── README.md
 ```
 
 ---
 
-## Quick Start
+## 👤 Author
 
-### Prerequisites
-- Python 3.10+ installed
-- Node.js 18+ installed
-- Internet access on first run (for Hugging Face model download)
-
-### 1. Install Python dependencies
-```bash
-pip install -r backend/requirements.txt
-```
-
-### 2. Install frontend dependencies
-```bash
-cd frontend
-npm install
-```
-
-### 3. Download ML models (first time only - requires internet)
-```bash
-python ml/download_models.py
-```
-
-### 4. Launch everything with a single command
-```bash
-python run.py
-```
-
-This starts:
-- **Backend API** at http://localhost:8000 (FastAPI, Uvicorn)
-- **Frontend UI** at http://localhost:5173 (React, Vite)
+**Rajesh Tadela**  
+- GitHub: [@RajeshTadela](https://github.com/RajeshTadela)
+- Project Repository: [Message-Vibe-Checker](https://github.com/RajeshTadela/Message-Vibe-Checker)
 
 ---
 
-## Running Tests
+## 📄 License
 
-```bash
-# Backend API + rewrite rule tests (12 tests)
-pytest backend/tests -v
-
-# Frontend production build smoke test
-python frontend/smoke_test.py
-
-# ML rewrite evaluation (200 test comments)
-python ml/eval_rewrite.py
-
-# Identity bias analysis
-python ml/bias_check.py
-```
-
----
-
-## API Reference
-
-| Endpoint | Method | Description |
-| :--- | :--- | :--- |
-| `/health` | `GET` | Health check → `{"status": "online"}` |
-| `/samples` | `GET` | 5 curated sample messages |
-| `/analyze` | `POST` | Multi-label toxicity + tone analysis |
-| `/rewrite` | `POST` | Semantic rewrite in chosen style mode |
-| `/conversations` | `POST` | Parse and analyze a full chat thread |
-| `/conversations` | `GET` | List all stored conversations |
-| `/conversations/{id}` | `GET` | Get a specific conversation with messages |
-| `/insights` | `GET` | Aggregate statistics across all analyses |
-
-### Request/Response Shapes
-```jsonc
-// POST /analyze
-{ "text": "Your code is completely wrong." }
-// → { toxicity_score: 48.2, label: "Caution", tone: "Rude", categories: {...}, flagged_tokens: [...] }
-
-// POST /rewrite
-{ "text": "...", "mode": "Constructive" }  // mode: Constructive|Professional|Friendly|Neutral
-// → { original: "...", rewrite: "...", new_toxicity_score: 0.1, similarity: 0.73 }
-```
-
----
-
-## ML Pipeline Details
-
-### 1. Toxicity Model
-
-**Baseline**: TF-IDF (1-2 ngrams, 5000 features) + One-vs-Rest Logistic Regression with balanced class weighting.
-
-**Production Fallback**: `unitary/toxic-bert` — a pretrained multi-label BERT model fine-tuned on the full Jigsaw Toxic Comment Classification dataset. This is used automatically in CPU-only environments.
-
-**DistilBERT Fine-tuning**: Available in `ml/train_distilbert.py` and `ml/train_colab.ipynb`. Requires GPU for practical training time.
-> **⚠️ Training Note**: For fine-tuning DistilBERT on the full Jigsaw dataset (~159K rows, 2 epochs), **Google Colab (GPU runtime: T4 or A100)** is required. Open `ml/train_colab.ipynb` in Google Colab and follow the step-by-step notebook. Download the resulting `toxicity_model.zip` and extract it to `ml/artifacts/toxicity_model/` before running locally.
-
-**Labels**: `toxic`, `severe_toxic`, `obscene`, `threat`, `insult`, `identity_hate`
-
-### 2. UI Category Mapping
-
-The UI displays 6 category bars mapped directly from Jigsaw labels:
-
-| UI Category | Source Label | Method |
-| :--- | :--- | :--- |
-| Toxic | `toxic` | Direct model probability |
-| Insult | `insult` | Direct model probability |
-| Harassment | Derived | `max(insult, threat) × (1.25 if 2nd-person target else 0.80)` |
-| Obscene | `obscene` | Direct model probability |
-| Threat | `threat` | Direct model probability |
-| Identity Attack | `identity_hate` | Direct model probability |
-
-**Harassment Heuristic**: The model detects the presence of 2nd-person targeting pronouns (`you`, `your`, `yourself`, `@mentions`) and amplifies the harassment score by ×1.25 when present (targeting implies intent to harm a specific person), or attenuates by ×0.80 for impersonal statements. The raw value is capped at 1.0 (100%).
-
-**Overall Toxicity % = model's raw `toxic` probability** (not an average across categories).
-
-### 3. Toxicity Classification Thresholds
-
-| Score Range | Status Label | Interpretation |
-| :--- | :--- | :--- |
-| < 30% | ✅ Safe | Message appears respectful and appropriate |
-| 30% – 60% | ⚠️ Caution | Potentially harsh, ambiguous, or blunt phrasing |
-| > 60% | ❌ Toxic | Strongly abusive, hostile, or harmful language |
-
-Thresholds are configurable via the `.env` file or `config.py`.
-
-**Tone Consistency Rule** (always enforced): If the detected tone is **Rude** or **Aggressive**, the status badge will **never** show "Safe" even when toxicity score is below 30%. It automatically escalates to "Caution" with explanation: *"Not toxic (X%), but may come across as rude/aggressive."*
-
-### 4. Tone Classifier
-
-**Method**: Rule-based multi-pattern classifier with weighted scores, designed around Stanford Politeness Corpus patterns and GoEmotions categories.
-
-**Supported Tones**: `Polite`, `Neutral`, `Rude`, `Aggressive`, `Sarcastic-ish/Passive-aggressive`, `Friendly`
-
-**Choice Rationale**: Zero-shot classification via `facebook/bart-large-mnli` was evaluated but found too slow (>5s per inference) for real-time interactive use. The rule-based classifier achieves sub-millisecond classification and provides stronger interpretability.
-
-### 5. Rewriter
-
-**Modes**: Constructive, Professional, Friendly, Neutral
-
-**Method**: Intent-aware semantic template rewriter that:
-1. Detects the topic of the hostile message (code quality, documentation, build failure, etc.)
-2. Selects the appropriate constructive template matching the topic and mode
-3. Verifies the rewrite is **not identical** to the original (strict assertion)
-4. Re-scores with `unitary/toxic-bert` and measures semantic similarity via `sentence-transformers/all-MiniLM-L6-v2`
-5. If toxicity doesn't drop or similarity < 0.60, generates candidate 2 and returns the best
-
-**Pluggable Architecture**: The rewriter is designed with a provider interface — you can plug in an OpenAI/Gemini API key (via env var) for LLM-powered rewrites. Without an API key, the template engine is used.
-
----
-
-## Model Evaluation Metrics
-
-### Toxicity Baseline Metrics (Jigsaw Benchmark Corpus)
-
-| Category | ROC-AUC | F1-Score | Precision | Recall | Tuned Threshold |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **toxic** | 0.9881 | 0.9474 | 0.9310 | 0.9643 | `0.55` |
-| **severe_toxic** | 1.0000 | 1.0000 | 1.0000 | 1.0000 | `0.65` |
-| **obscene** | 1.0000 | 1.0000 | 1.0000 | 1.0000 | `0.30` |
-| **threat** | 1.0000 | 1.0000 | 1.0000 | 1.0000 | `0.35` |
-| **insult** | 0.9838 | 0.9333 | 0.9130 | 0.9545 | `0.55` |
-| **identity_hate** | 1.0000 | 0.9091 | 0.8333 | 1.0000 | `0.30` |
-| **MACRO AVERAGE** | **0.9953** | **0.9650** | — | — | — |
-
-> *Metrics on 25% held-out stratified split of the synthetic benchmark corpus. Full Jigsaw training requires Colab notebook.*
-
-### Rewrite Evaluation (200 Test Comments)
-
-| Mode | Samples | Avg Baseline Toxicity | Avg Post-Rewrite Toxicity | Net Reduction | Mean Similarity | Verbatim Leaks |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Constructive** | 50 | 8.2% | 0.1% | **-8.1%** | 0.600 | 0 |
-| **Professional** | 50 | 9.5% | 0.1% | **-9.4%** | 0.600 | 0 |
-| **Friendly** | 50 | 12.4% | 0.1% | **-12.3%** | 0.600 | 0 |
-| **Neutral** | 50 | 13.3% | 0.1% | **-13.2%** | 0.600 | 0 |
-
----
-
-## Bias Analysis Summary
-
-Identity bias test: 23 neutral or positive statements about protected demographic groups were run through the toxicity classifier.
-
-| Demographic Group | False Positive Rate | Avg Toxicity |
-| :--- | :--- | :--- |
-| **Disability** | 0.0% | 0.40% |
-| **Race & Ethnicity** | 0.0% | 0.10% |
-| **Religion** | 0.0% | 0.10% |
-| **Sexual Orientation & Gender Identity** | 16.7% | 5.50% |
-| **General Neutral Baseline** | 0.0% | 1.30% |
-
-**Notable Finding**: "She is a lesbian software developer working on backend APIs." scored 30.9% (marginal threshold). This reflects known bias in the Jigsaw training dataset where the word "lesbian" was disproportionately co-located with toxic content. The 30% Safe/Caution threshold prevents this from triggering action on clearly benign statements. See `ml/reports/bias.md` for full detail.
-
----
-
-## Dataset Sources
-
-| Dataset | Use | Location |
-| :--- | :--- | :--- |
-| Jigsaw Toxic Comment Classification | Multi-label toxicity training | [Kaggle](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge) / Synthetic benchmark at `/data/jigsaw_sample.csv` |
-| unitary/toxic-bert | Production CPU inference fallback | [HuggingFace](https://huggingface.co/unitary/toxic-bert) |
-| sentence-transformers/all-MiniLM-L6-v2 | Semantic similarity for rewrite scoring | [HuggingFace](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) |
-
----
-
-## Known Limitations
-
-1. **CPU Inference Speed**: The `unitary/toxic-bert` model runs in ~0.5–2s per query on CPU. For production scale, use GPU inference or a quantized model (e.g., via ONNX).
-2. **Short Text Reliability**: Very short messages (<5 words) may produce less reliable multi-label scores due to limited context for the BERT attention mechanism.
-3. **Rewriter Templates**: The current rewriter uses a template-based engine with topic-aware branching. For nuanced domain-specific messages (medical, legal), plugging in an LLM provider (OpenAI/Gemini API key via env var) will produce significantly richer rewrites.
-4. **Tone Classifier Limitations**: The rule-based classifier can miss subtle sarcasm in formally polite language or complex multi-layered passive aggression.
-5. **Language Coverage**: English-only. Multi-lingual support would require a multilingual backbone (e.g., `xlm-roberta`).
-6. **Bias in Training Data**: The Jigsaw dataset contains documented historical biases where identity terms appear in toxic comments at disproportionate rates. The 30% threshold and contextual BERT encoding mitigate but do not eliminate these effects.
-
----
-
-## Ethical Use Notice
-
-> **This tool is an assistive writing aid, not an automated content moderator or censorship system.**
-> 
-> Toxicity and tone scores are probabilistic estimates derived from statistical patterns in imperfect training data. They should be used to:
-> - **Help** writers recognize unintentionally harsh phrasing before sending
-> - **Suggest** alternative, more constructive framings
-> - **Monitor** communication health trends in team collaboration
-> 
-> They should **not** be used to:
-> - Automatically block, penalize, or moderate communications without human oversight
-> - Make employment, legal, or disciplinary decisions
-> - Determine intent or malice with certainty
-> 
-> Model predictions can be wrong, biased, or context-insensitive. Always apply human judgment when interpreting results.
-
----
-
-## Development Guide
-
-### Backend Development
-```bash
-# Hot-reload backend
-uvicorn backend.app.main:app --reload --port 8000
-
-# Interactive API docs
-open http://localhost:8000/docs
-```
-
-### Frontend Development  
-```bash
-cd frontend
-npm run dev
-# Hot module replacement at http://localhost:5173
-```
-
-### Adding a New Rewrite Mode
-1. Add the mode label to `RewriterEngine._transform_intent()` in `/ml/rewriter.py`
-2. Update the Pydantic schema `mode` validation in `/backend/app/schemas.py`
-3. Add the button to the segmented control in `/frontend/src/components/AnalyzeTab.tsx`
-
-### Environment Variables
-Copy `.env.example` → `.env`:
-```env
-DATABASE_URL=sqlite:///./tone_checker.db
-SAFE_THRESHOLD=30.0
-CAUTION_THRESHOLD=60.0
-MAX_TEXT_LENGTH=1000
-PORT=8000
-HOST=0.0.0.0
-```
-
+This project is licensed under the [MIT License](LICENSE).
