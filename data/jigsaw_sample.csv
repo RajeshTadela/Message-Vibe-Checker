@@ -1,0 +1,255 @@
+id,comment_text,toxic,severe_toxic,obscene,threat,insult,identity_hate
+sample_00001,Thanks for explaining the code changes. I will review them soon.,0,0,0,0,0,0
+sample_00002,The quick brown fox jumps over the lazy dog.,0,0,0,0,0,0
+sample_00003,Please remember to push your branch before the standup meeting.,0,0,0,0,0,0
+sample_00004,I am a gay man living in California and I love open-source software.,0,0,0,0,0,0
+sample_00005,She is a Muslim engineer working on natural language processing.,0,0,0,0,0,0
+sample_00006,My brother is Jewish and an avid runner.,0,0,0,0,0,0
+sample_00007,They are proud transgender activists supporting equality.,0,0,0,0,0,0
+sample_00008,"As an African American developer, I find this documentation very clear.",0,0,0,0,0,0
+sample_00009,Could you please review the pull request when you have a moment?,0,0,0,0,0,0
+sample_00010,The weather in London is unusually sunny today.,0,0,0,0,0,0
+sample_00011,I appreciate your constructive feedback on my architecture proposal.,0,0,0,0,0,0
+sample_00012,We should schedule a brief sync to align on API specifications.,0,0,0,0,0,0
+sample_00013,Great work on resolving that complex database deadlock issue!,0,0,0,0,0,0
+sample_00014,Let's make sure the tests pass before cutting the release tag.,0,0,0,0,0,0
+sample_00015,I am disabled and use screen reading software for development.,0,0,0,0,0,0
+sample_00016,Can you clarify what edge cases this validation logic addresses?,0,0,0,0,0,0
+sample_00017,The deployment pipeline succeeded in 4 minutes with zero errors.,0,0,0,0,0,0
+sample_00018,"We welcome contributions from people of all races, religions, and backgrounds.",0,0,0,0,0,0
+sample_00019,Thanks for your patience while we investigated the performance regression.,0,0,0,0,0,0
+sample_00020,The meeting minutes have been posted to the shared team workspace.,0,0,0,0,0,0
+sample_00021,Did you even bother reading the ticket description before coding this?,0,0,0,0,0,0
+sample_00022,"This is a total waste of my afternoon, fix this right now.",0,0,0,0,0,0
+sample_00023,Stop asking basic questions and read the documentation first.,0,0,0,0,0,0
+sample_00024,Your code is completely wrong and makes no sense at all.,1,0,0,0,0,0
+sample_00025,"Oh wow, what a brilliant idea to break production on a Friday.",0,0,0,0,0,0
+sample_00026,Why on earth would anyone write a loop like this? Rewind and redo.,0,0,0,0,0,0
+sample_00027,I shouldn't have to explain this five times to an engineer.,0,0,0,0,1,0
+sample_00028,Don't ping me about this again until you have actual test results.,0,0,0,0,0,0
+sample_00029,You are an absolute idiot and a complete moron.,1,0,0,0,1,0
+sample_00030,Nobody cares what a pathetic clown like you thinks.,1,0,0,0,1,0
+sample_00031,You are utterly incompetent and the worst developer on this team.,1,0,0,0,1,0
+sample_00032,"Shut up you brainless fool, stop embarrassing yourself.",1,0,0,0,1,0
+sample_00033,"You have the intelligence of a rock, go get a real job.",1,0,0,0,1,0
+sample_00034,You are a loser and nobody here respects your garbage opinions.,1,0,0,0,1,0
+sample_00035,"Stop talking you stupid clown, you have no clue what you're doing.",1,0,0,0,1,0
+sample_00036,What the fuck is this piece of shit code doing here?,1,0,1,0,0,0
+sample_00037,"Get your bullshit out of this repository, you asshole.",1,0,1,0,1,0
+sample_00038,This entire fucking feature is absolute crap and garbage.,1,0,1,0,0,0
+sample_00039,Fuck off and stop spamming our issue tracker with your crap.,1,0,1,0,1,0
+sample_00040,"You damn idiot, don't touch that fucking database again.",1,0,1,0,1,0
+sample_00041,I am going to find where you live and beat you to death.,1,1,0,1,1,0
+sample_00042,Watch your back tomorrow because I will destroy you.,1,0,0,1,0,0
+sample_00043,I will kill you if you ever talk to me like that again.,1,1,0,1,0,0
+sample_00044,I am going to hunt you down and make you regret ever being born.,1,1,0,1,1,0
+sample_00045,You better sleep with one eye open or I'll smash your face.,1,1,0,1,0,0
+sample_00046,All Muslims are terrorists and should be kicked out immediately.,1,0,0,0,1,1
+sample_00047,Gay people are disgusting and have no place in our society.,1,0,0,0,1,1
+sample_00048,Women are too emotional to be software engineers and shouldn't code.,1,0,0,0,1,1
+sample_00049,Those immigrants are subhuman scum destroying our country.,1,1,0,0,1,1
+sample_00050,Transgender people are mentally ill freaks who should be locked up.,1,0,0,0,1,1
+sample_00051,Black people are inferior and don't belong in tech.,1,1,0,0,1,1
+sample_00052,"You stupid fucking piece of shit, I will hunt you down and slit your throat.",1,1,1,1,1,0
+sample_00053,"Die in a fire you worthless piece of filth, hope your whole family perishes.",1,1,1,1,1,0
+sample_00054,"You disgusting gay faggot, get the fuck out or I'll kill you.",1,1,1,1,1,1
+sample_00055,Please check the pull request for the authentication module.,0,0,0,0,0,0
+sample_00056,Could you update the documentation regarding the authentication release?,0,0,0,0,0,0
+sample_00057,I submitted a bug report about authentication in the tracking portal.,0,0,0,0,0,0
+sample_00058,Let's review the unit test coverage for the authentication integration.,0,0,0,0,0,0
+sample_00059,Thank you for the quick turnaround on the authentication bugfix.,0,0,0,0,0,0
+sample_00060,The team agreed to migrate the authentication service next sprint.,0,0,0,0,0,0
+sample_00061,Can we schedule a 15-minute sync to discuss authentication?,0,0,0,0,0,0
+sample_00062,The performance of the authentication endpoint looks very stable.,0,0,0,0,0,0
+sample_00063,I am an Asian software engineer specializing in authentication.,0,0,0,0,0,0
+sample_00064,I am a gay developer who contributed to the authentication package.,0,0,0,0,0,0
+sample_00065,She is a Muslim product manager overseeing the authentication rollout.,0,0,0,0,0,0
+sample_00066,He is a Hispanic data scientist analyzing authentication telemetry.,0,0,0,0,0,0
+sample_00067,Please check the pull request for the billing module.,0,0,0,0,0,0
+sample_00068,Could you update the documentation regarding the billing release?,0,0,0,0,0,0
+sample_00069,I submitted a bug report about billing in the tracking portal.,0,0,0,0,0,0
+sample_00070,Let's review the unit test coverage for the billing integration.,0,0,0,0,0,0
+sample_00071,Thank you for the quick turnaround on the billing bugfix.,0,0,0,0,0,0
+sample_00072,The team agreed to migrate the billing service next sprint.,0,0,0,0,0,0
+sample_00073,Can we schedule a 15-minute sync to discuss billing?,0,0,0,0,0,0
+sample_00074,The performance of the billing endpoint looks very stable.,0,0,0,0,0,0
+sample_00075,I am an Asian software engineer specializing in billing.,0,0,0,0,0,0
+sample_00076,I am a gay developer who contributed to the billing package.,0,0,0,0,0,0
+sample_00077,She is a Muslim product manager overseeing the billing rollout.,0,0,0,0,0,0
+sample_00078,He is a Hispanic data scientist analyzing billing telemetry.,0,0,0,0,0,0
+sample_00079,Please check the pull request for the search index module.,0,0,0,0,0,0
+sample_00080,Could you update the documentation regarding the search index release?,0,0,0,0,0,0
+sample_00081,I submitted a bug report about search index in the tracking portal.,0,0,0,0,0,0
+sample_00082,Let's review the unit test coverage for the search index integration.,0,0,0,0,0,0
+sample_00083,Thank you for the quick turnaround on the search index bugfix.,0,0,0,0,0,0
+sample_00084,The team agreed to migrate the search index service next sprint.,0,0,0,0,0,0
+sample_00085,Can we schedule a 15-minute sync to discuss search index?,0,0,0,0,0,0
+sample_00086,The performance of the search index endpoint looks very stable.,0,0,0,0,0,0
+sample_00087,I am an Asian software engineer specializing in search index.,0,0,0,0,0,0
+sample_00088,I am a gay developer who contributed to the search index package.,0,0,0,0,0,0
+sample_00089,She is a Muslim product manager overseeing the search index rollout.,0,0,0,0,0,0
+sample_00090,He is a Hispanic data scientist analyzing search index telemetry.,0,0,0,0,0,0
+sample_00091,Please check the pull request for the gateway module.,0,0,0,0,0,0
+sample_00092,Could you update the documentation regarding the gateway release?,0,0,0,0,0,0
+sample_00093,I submitted a bug report about gateway in the tracking portal.,0,0,0,0,0,0
+sample_00094,Let's review the unit test coverage for the gateway integration.,0,0,0,0,0,0
+sample_00095,Thank you for the quick turnaround on the gateway bugfix.,0,0,0,0,0,0
+sample_00096,The team agreed to migrate the gateway service next sprint.,0,0,0,0,0,0
+sample_00097,Can we schedule a 15-minute sync to discuss gateway?,0,0,0,0,0,0
+sample_00098,The performance of the gateway endpoint looks very stable.,0,0,0,0,0,0
+sample_00099,I am an Asian software engineer specializing in gateway.,0,0,0,0,0,0
+sample_00100,I am a gay developer who contributed to the gateway package.,0,0,0,0,0,0
+sample_00101,She is a Muslim product manager overseeing the gateway rollout.,0,0,0,0,0,0
+sample_00102,He is a Hispanic data scientist analyzing gateway telemetry.,0,0,0,0,0,0
+sample_00103,Please check the pull request for the caching layer module.,0,0,0,0,0,0
+sample_00104,Could you update the documentation regarding the caching layer release?,0,0,0,0,0,0
+sample_00105,I submitted a bug report about caching layer in the tracking portal.,0,0,0,0,0,0
+sample_00106,Let's review the unit test coverage for the caching layer integration.,0,0,0,0,0,0
+sample_00107,Thank you for the quick turnaround on the caching layer bugfix.,0,0,0,0,0,0
+sample_00108,The team agreed to migrate the caching layer service next sprint.,0,0,0,0,0,0
+sample_00109,Can we schedule a 15-minute sync to discuss caching layer?,0,0,0,0,0,0
+sample_00110,The performance of the caching layer endpoint looks very stable.,0,0,0,0,0,0
+sample_00111,I am an Asian software engineer specializing in caching layer.,0,0,0,0,0,0
+sample_00112,I am a gay developer who contributed to the caching layer package.,0,0,0,0,0,0
+sample_00113,She is a Muslim product manager overseeing the caching layer rollout.,0,0,0,0,0,0
+sample_00114,He is a Hispanic data scientist analyzing caching layer telemetry.,0,0,0,0,0,0
+sample_00115,Please check the pull request for the user profile module.,0,0,0,0,0,0
+sample_00116,Could you update the documentation regarding the user profile release?,0,0,0,0,0,0
+sample_00117,I submitted a bug report about user profile in the tracking portal.,0,0,0,0,0,0
+sample_00118,Let's review the unit test coverage for the user profile integration.,0,0,0,0,0,0
+sample_00119,Thank you for the quick turnaround on the user profile bugfix.,0,0,0,0,0,0
+sample_00120,The team agreed to migrate the user profile service next sprint.,0,0,0,0,0,0
+sample_00121,Can we schedule a 15-minute sync to discuss user profile?,0,0,0,0,0,0
+sample_00122,The performance of the user profile endpoint looks very stable.,0,0,0,0,0,0
+sample_00123,I am an Asian software engineer specializing in user profile.,0,0,0,0,0,0
+sample_00124,I am a gay developer who contributed to the user profile package.,0,0,0,0,0,0
+sample_00125,She is a Muslim product manager overseeing the user profile rollout.,0,0,0,0,0,0
+sample_00126,He is a Hispanic data scientist analyzing user profile telemetry.,0,0,0,0,0,0
+sample_00127,Please check the pull request for the payment processor module.,0,0,0,0,0,0
+sample_00128,Could you update the documentation regarding the payment processor release?,0,0,0,0,0,0
+sample_00129,I submitted a bug report about payment processor in the tracking portal.,0,0,0,0,0,0
+sample_00130,Let's review the unit test coverage for the payment processor integration.,0,0,0,0,0,0
+sample_00131,Thank you for the quick turnaround on the payment processor bugfix.,0,0,0,0,0,0
+sample_00132,The team agreed to migrate the payment processor service next sprint.,0,0,0,0,0,0
+sample_00133,Can we schedule a 15-minute sync to discuss payment processor?,0,0,0,0,0,0
+sample_00134,The performance of the payment processor endpoint looks very stable.,0,0,0,0,0,0
+sample_00135,I am an Asian software engineer specializing in payment processor.,0,0,0,0,0,0
+sample_00136,I am a gay developer who contributed to the payment processor package.,0,0,0,0,0,0
+sample_00137,She is a Muslim product manager overseeing the payment processor rollout.,0,0,0,0,0,0
+sample_00138,He is a Hispanic data scientist analyzing payment processor telemetry.,0,0,0,0,0,0
+sample_00139,Please check the pull request for the analytics module.,0,0,0,0,0,0
+sample_00140,Could you update the documentation regarding the analytics release?,0,0,0,0,0,0
+sample_00141,I submitted a bug report about analytics in the tracking portal.,0,0,0,0,0,0
+sample_00142,Let's review the unit test coverage for the analytics integration.,0,0,0,0,0,0
+sample_00143,Thank you for the quick turnaround on the analytics bugfix.,0,0,0,0,0,0
+sample_00144,The team agreed to migrate the analytics service next sprint.,0,0,0,0,0,0
+sample_00145,Can we schedule a 15-minute sync to discuss analytics?,0,0,0,0,0,0
+sample_00146,The performance of the analytics endpoint looks very stable.,0,0,0,0,0,0
+sample_00147,I am an Asian software engineer specializing in analytics.,0,0,0,0,0,0
+sample_00148,I am a gay developer who contributed to the analytics package.,0,0,0,0,0,0
+sample_00149,She is a Muslim product manager overseeing the analytics rollout.,0,0,0,0,0,0
+sample_00150,He is a Hispanic data scientist analyzing analytics telemetry.,0,0,0,0,0,0
+sample_00151,Please check the pull request for the logger module.,0,0,0,0,0,0
+sample_00152,Could you update the documentation regarding the logger release?,0,0,0,0,0,0
+sample_00153,I submitted a bug report about logger in the tracking portal.,0,0,0,0,0,0
+sample_00154,Let's review the unit test coverage for the logger integration.,0,0,0,0,0,0
+sample_00155,Thank you for the quick turnaround on the logger bugfix.,0,0,0,0,0,0
+sample_00156,The team agreed to migrate the logger service next sprint.,0,0,0,0,0,0
+sample_00157,Can we schedule a 15-minute sync to discuss logger?,0,0,0,0,0,0
+sample_00158,The performance of the logger endpoint looks very stable.,0,0,0,0,0,0
+sample_00159,I am an Asian software engineer specializing in logger.,0,0,0,0,0,0
+sample_00160,I am a gay developer who contributed to the logger package.,0,0,0,0,0,0
+sample_00161,She is a Muslim product manager overseeing the logger rollout.,0,0,0,0,0,0
+sample_00162,He is a Hispanic data scientist analyzing logger telemetry.,0,0,0,0,0,0
+sample_00163,Please check the pull request for the scheduler module.,0,0,0,0,0,0
+sample_00164,Could you update the documentation regarding the scheduler release?,0,0,0,0,0,0
+sample_00165,I submitted a bug report about scheduler in the tracking portal.,0,0,0,0,0,0
+sample_00166,Let's review the unit test coverage for the scheduler integration.,0,0,0,0,0,0
+sample_00167,Thank you for the quick turnaround on the scheduler bugfix.,0,0,0,0,0,0
+sample_00168,The team agreed to migrate the scheduler service next sprint.,0,0,0,0,0,0
+sample_00169,Can we schedule a 15-minute sync to discuss scheduler?,0,0,0,0,0,0
+sample_00170,The performance of the scheduler endpoint looks very stable.,0,0,0,0,0,0
+sample_00171,I am an Asian software engineer specializing in scheduler.,0,0,0,0,0,0
+sample_00172,I am a gay developer who contributed to the scheduler package.,0,0,0,0,0,0
+sample_00173,She is a Muslim product manager overseeing the scheduler rollout.,0,0,0,0,0,0
+sample_00174,He is a Hispanic data scientist analyzing scheduler telemetry.,0,0,0,0,0,0
+sample_00175,"You are such a complete moron, learn how to code.",1,0,0,0,1,0
+sample_00176,Only a pure moron would write such terrible garbage.,1,0,0,0,1,0
+sample_00177,"Stop talking, you brainless moron.",1,0,0,0,1,0
+sample_00178,Why are you so moron and utterly useless?,1,0,0,0,1,0
+sample_00179,"You are such a complete idiot, learn how to code.",1,0,0,0,1,0
+sample_00180,Only a pure idiot would write such terrible garbage.,1,0,0,0,1,0
+sample_00181,"Stop talking, you brainless idiot.",1,0,0,0,1,0
+sample_00182,Why are you so idiot and utterly useless?,1,0,0,0,1,0
+sample_00183,"You are such a complete clown, learn how to code.",1,0,0,0,1,0
+sample_00184,Only a pure clown would write such terrible garbage.,1,0,0,0,1,0
+sample_00185,"Stop talking, you brainless clown.",1,0,0,0,1,0
+sample_00186,Why are you so clown and utterly useless?,1,0,0,0,1,0
+sample_00187,"You are such a complete loser, learn how to code.",1,0,0,0,1,0
+sample_00188,Only a pure loser would write such terrible garbage.,1,0,0,0,1,0
+sample_00189,"Stop talking, you brainless loser.",1,0,0,0,1,0
+sample_00190,Why are you so loser and utterly useless?,1,0,0,0,1,0
+sample_00191,"You are such a complete buffoon, learn how to code.",1,0,0,0,1,0
+sample_00192,Only a pure buffoon would write such terrible garbage.,1,0,0,0,1,0
+sample_00193,"Stop talking, you brainless buffoon.",1,0,0,0,1,0
+sample_00194,Why are you so buffoon and utterly useless?,1,0,0,0,1,0
+sample_00195,"You are such a complete fool, learn how to code.",1,0,0,0,1,0
+sample_00196,Only a pure fool would write such terrible garbage.,1,0,0,0,1,0
+sample_00197,"Stop talking, you brainless fool.",1,0,0,0,1,0
+sample_00198,Why are you so fool and utterly useless?,1,0,0,0,1,0
+sample_00199,"You are such a complete imbecile, learn how to code.",1,0,0,0,1,0
+sample_00200,Only a pure imbecile would write such terrible garbage.,1,0,0,0,1,0
+sample_00201,"Stop talking, you brainless imbecile.",1,0,0,0,1,0
+sample_00202,Why are you so imbecile and utterly useless?,1,0,0,0,1,0
+sample_00203,"You are such a complete hack, learn how to code.",1,0,0,0,1,0
+sample_00204,Only a pure hack would write such terrible garbage.,1,0,0,0,1,0
+sample_00205,"Stop talking, you brainless hack.",1,0,0,0,1,0
+sample_00206,Why are you so hack and utterly useless?,1,0,0,0,1,0
+sample_00207,What the fuck is this disgusting trash?,1,0,1,0,0,0
+sample_00208,Get your fuck out of our codebase right now.,1,0,1,0,1,0
+sample_00209,This is the most fuck awful feature I have ever seen.,1,0,1,0,0,0
+sample_00210,What the fucking hell is this disgusting trash?,1,0,1,0,0,0
+sample_00211,Get your fucking hell out of our codebase right now.,1,0,1,0,1,0
+sample_00212,This is the most fucking hell awful feature I have ever seen.,1,0,1,0,0,0
+sample_00213,What the shit is this disgusting trash?,1,0,1,0,0,0
+sample_00214,Get your shit out of our codebase right now.,1,0,1,0,1,0
+sample_00215,This is the most shit awful feature I have ever seen.,1,0,1,0,0,0
+sample_00216,What the bullshit is this disgusting trash?,1,0,1,0,0,0
+sample_00217,Get your bullshit out of our codebase right now.,1,0,1,0,1,0
+sample_00218,This is the most bullshit awful feature I have ever seen.,1,0,1,0,0,0
+sample_00219,What the damn crap is this disgusting trash?,1,0,1,0,0,0
+sample_00220,Get your damn crap out of our codebase right now.,1,0,1,0,1,0
+sample_00221,This is the most damn crap awful feature I have ever seen.,1,0,1,0,0,0
+sample_00222,I will kill you if you ever do this again.,1,0,0,1,0,0
+sample_00223,I am going to kill your face into the pavement.,1,1,0,1,1,0
+sample_00224,You will regret this when I kill you in person.,1,0,0,1,0,0
+sample_00225,I will destroy you if you ever do this again.,1,0,0,1,0,0
+sample_00226,I am going to destroy your face into the pavement.,1,1,0,1,1,0
+sample_00227,You will regret this when I destroy you in person.,1,0,0,1,0,0
+sample_00228,I will strangle you if you ever do this again.,1,0,0,1,0,0
+sample_00229,I am going to strangle your face into the pavement.,1,1,0,1,1,0
+sample_00230,You will regret this when I strangle you in person.,1,0,0,1,0,0
+sample_00231,I will beat up you if you ever do this again.,1,0,0,1,0,0
+sample_00232,I am going to beat up your face into the pavement.,1,1,0,1,1,0
+sample_00233,You will regret this when I beat up you in person.,1,0,0,1,0,0
+sample_00234,I will hunt down and hurt you if you ever do this again.,1,0,0,1,0,0
+sample_00235,I am going to hunt down and hurt your face into the pavement.,1,1,0,1,1,0
+sample_00236,You will regret this when I hunt down and hurt you in person.,1,0,0,1,0,0
+sample_00237,All Muslims are inferior and do not belong here.,1,0,0,0,1,1
+sample_00238,"I hate all Muslims, they are ruining our society.",1,0,0,0,1,1
+sample_00239,Muslims should not be allowed to work in technology.,1,0,0,0,1,1
+sample_00240,All gays are inferior and do not belong here.,1,0,0,0,1,1
+sample_00241,"I hate all gays, they are ruining our society.",1,0,0,0,1,1
+sample_00242,gays should not be allowed to work in technology.,1,0,0,0,1,1
+sample_00243,All transgender people are inferior and do not belong here.,1,0,0,0,1,1
+sample_00244,"I hate all transgender people, they are ruining our society.",1,0,0,0,1,1
+sample_00245,transgender people should not be allowed to work in technology.,1,0,0,0,1,1
+sample_00246,All immigrants are inferior and do not belong here.,1,0,0,0,1,1
+sample_00247,"I hate all immigrants, they are ruining our society.",1,0,0,0,1,1
+sample_00248,immigrants should not be allowed to work in technology.,1,0,0,0,1,1
+sample_00249,All Black people are inferior and do not belong here.,1,0,0,0,1,1
+sample_00250,"I hate all Black people, they are ruining our society.",1,0,0,0,1,1
+sample_00251,Black people should not be allowed to work in technology.,1,0,0,0,1,1
+sample_00252,All Jews are inferior and do not belong here.,1,0,0,0,1,1
+sample_00253,"I hate all Jews, they are ruining our society.",1,0,0,0,1,1
+sample_00254,Jews should not be allowed to work in technology.,1,0,0,0,1,1

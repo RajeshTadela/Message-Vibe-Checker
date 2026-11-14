@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+.pytest_cache/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Node & Frontend Build
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Large ML Model Weights (>100MB blocked by GitHub limit)
+# Users can download pretrained unitary/toxic-bert or train via Colab notebook
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.h5
+*.onnx
+*.zip
+
+# Environment & Secrets
+.env
+.env.local
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
